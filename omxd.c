@@ -378,7 +378,8 @@ static char **next_hdmi_filter(char **files)
 static char *get_output(char *cmd)
 {
 	enum e_outputs           { OUT_JACK,  OUT_HDMI };
-	static char *outputs[] = { "-olocal", "-ohdmi" };
+	/*seeba8: adjust to output to alsa instead of to local (jack) since I'm using an audioHAT */
+	static char *outputs[] = { "-oalsa", "-ohdmi" };
 	static enum e_outputs output = OUT_JACK;
 	enum e_outputs output_now;
 	if (cmd == NULL)
